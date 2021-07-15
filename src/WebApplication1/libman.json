@@ -6,7 +6,12 @@
             "provider": "unpkg",
             "destination": "wwwroot/js/signalr",
             "library": "@microsoft/signalr@latest",
-            "files": [ "signalr.js", "signalr.min.js" ]
+            "files": [ "dist/browser/signalr.js", "dist/browser/signalr.min.js" ]
+        },
+        {
+            "provider": "unpkg",
+            "library": "bootstrap@4.6.0",
+            "destination": "wwwroot/lib/bootstrap/"
         }
     ]
 }
