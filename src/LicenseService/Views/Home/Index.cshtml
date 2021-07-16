@@ -1,0 +1,22 @@
+﻿@using System.Linq
+
+@model LicenseService.Models.IndexViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="row">
+    <table class="table-responsive">
+        @if (Model.Licenses.Any()) {
+            <thead><tr><th>License</th></tr></thead>
+
+            foreach (var license in Model.Licenses) {
+                <tr><td>@license.Value</td></tr>
+            }
+
+        } else {
+            <tr><td>License List is empty.</td></tr>
+        }
+    </table>
+</div>

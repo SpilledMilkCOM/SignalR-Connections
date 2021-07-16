@@ -13,7 +13,6 @@ of each client.  A timer in the browser is utilized as well to disconnect the cl
   * Might possibly send a warning versus just logging them out (much like a "server needs to reboot in 5 minutes")
 * ⬜ Monitor reconnect events (only available in the .Net Framework)
 * ⬜ Authenticate user **before** connecting to SignalR *(use token as unique key for client app)*
-* ⬜ Build license web service
 * ⬜ Move SignalR communication to license web service
 * ⬜ Move SignalR to separate server (need Redis for scale out)
 * ⬜ Publish to Azure
@@ -43,8 +42,10 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 ## ✅ Done!
 
 * Steps to create the .Net Core 5 web application *(above)*
+* Added messages for connect and disconnect
 * Timer to warn user of inactivity *(user can cancel and reset the warning timer)*
 * Timer for logout.
+* Build license web service *(.Net Core 5.0)*
 
 ## 🤔 Things to Consider
 
