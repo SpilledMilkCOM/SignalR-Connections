@@ -1,17 +1,24 @@
 # 🔗 SignalR-Connections
 
-## A project to illustrate and understand the connection lifetime events in SignalR.
+#### A project to illustrate and understand the connection lifetime events in SignalR.
 
-Ideally this project will call out the connection lifetime events of a web-client.
+This project calls out the connection lifetime events in a SignalR web application.  It can monitor the connect and disconnect
+of each client.  A timer in the browser is utilized as well to disconnect the client.
 
-## Folder Structure
+**📝 TODO**
+
+* 🔳 Use a timing mechanism in the server to disconnect the client when their time has expired.
+* 🔳 Monitor reconnect events (only available in the .Net Framework)
+
+## 📁 Folder Structure
 
 * 📁 **WebApplication1** - A .Net Core 5 MVC web app
 * 📁 **WebApplication2** - A .Net 4.8 MVC web app (coming soon)
 
-There are slight differences between .Net Core and Framework SignalR libraries that are documented [**here**](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences?view=aspnetcore-5.0).
+There are slight differences between .Net Core and Framework SignalR libraries that are documented
+[**here**](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences?view=aspnetcore-5.0).
 
-## Steps to Recreate the Project(s)
+## 🔢 Steps to Recreate the Project(s)
 
 * Create a new .Net Core 5 web application.
 * Add the SignalR client library using `npm` or `libMan`.
@@ -20,14 +27,12 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 * Create and HTML view.
 * Create the Javascript methods to create a hub on the client and process the messages.
 
-## Things to Consider
+## 🤔 Things to Consider
 
 * [**Configuration**](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-5.0&tabs=dotnet) - Timeouts, etc.
 * [**Authentication and Authorization**](https://docs.microsoft.com/en-us/aspnet/core/signalr/authn-and-authz?view=aspnetcore-5.0)
 * [**Host & Scale**](https://docs.microsoft.com/en-us/aspnet/core/signalr/scale?view=aspnetcore-5.0)
 * [**Compare .Net Core & Framework API's / Features**](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences?view=aspnetcore-5.0)
-
-
 
 ## 📚 References:
 
