@@ -24,8 +24,9 @@ of each client.  A timer in the browser is utilized as well to disconnect the cl
 
 ## 📁 Folder Structure
 
-* 📁 **WebApplication1** - A .Net Core 5 MVC web app
-* 📁 **WebApplication2** - A .Net 4.8 MVC web app (coming soon)
+* 📁 **src/LicenseService** - A .Net Core 5 MVC web app & API to get and return licenses
+* 📁 **src/WebApplication1** - A .Net Core 5 MVC web app
+* 📁 **src/WebApplication2** - A .Net 4.8 MVC web app (coming soon)
 
 There are slight differences between .Net Core and Framework SignalR libraries that are documented
 [**here**](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences?view=aspnetcore-5.0).
