@@ -29,7 +29,7 @@ function CheckIdleTime() {
         console.log("Idle time reached.");
 
         window.clearInterval(_warningIntervalId);
-        _logoutIntervalId = window.setInterval(CheckLogooutTime, IDLE_CHECK_INTERVAL * 1000);
+        _logoutIntervalId = window.setInterval(CheckLogoutTime, IDLE_CHECK_INTERVAL * 1000);
 
         // Warning dialog here.
 
@@ -43,7 +43,7 @@ function CheckIdleTime() {
     }
 }
 
-function CheckLogooutTime() {
+function CheckLogoutTime() {
     _logoutSecondsCounter += IDLE_CHECK_INTERVAL;
 
     if (_logoutSecondsCounter >= IDLE_TIMEOUT) {
