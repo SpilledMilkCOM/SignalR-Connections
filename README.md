@@ -5,11 +5,23 @@
 This project calls out the connection lifetime events in a SignalR web application.  It can monitor the connect and disconnect
 of each client.  A timer in the browser is utilized as well to disconnect the client.
 
-**📝 TODO**
+## 📝 TODO
 
-* 🔳 Use a timing mechanism in the server to disconnect the client when their time has expired.
+* ⬜ Add **disconnect** button.
+* ⬜ Use DI and IoC container for object creation.
+* ⬜ Use a timing mechanism in the server to disconnect the client when their time has expired.
   * Might possibly send a warning versus just logging them out (much like a "server needs to reboot in 5 minutes")
-* 🔳 Monitor reconnect events (only available in the .Net Framework)
+* ⬜ Monitor reconnect events (only available in the .Net Framework)
+* ⬜ Authenticate user **before** connecting to SignalR *(use token as unique key for client app)*
+* ⬜ Build license web service
+* ⬜ Move SignalR communication to license web service
+* ⬜ Move SignalR to separate server (need Redis for scale out)
+* ⬜ Publish to Azure
+* ⬜ Publish to local HyperV VM *(test network connectivity - easy to turn OFF network)*
+* ⬜ Wrap all of this up neatly into deliverables so web applications to **minimal** setup.
+* ⬜ Convert web application to Angular
+* ⬜ Test with Jasmine?
+* ⬜ Convert web application to React
 
 ## 📁 Folder Structure
 
@@ -27,6 +39,12 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 * Configure SignalR in the Startup.cs file.
 * Create an HTML view.
 * Create the Javascript methods to create a hub on the client and process the messages.
+
+## ✅ Done!
+
+* Steps to create the .Net Core 5 web application *(above)*
+* Timer to warn user of inactivity *(user can cancel and reset the warning timer)*
+* Timer for logout.
 
 ## 🤔 Things to Consider
 
