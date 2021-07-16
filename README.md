@@ -8,6 +8,7 @@ of each client.  A timer in the browser is utilized as well to disconnect the cl
 **📝 TODO**
 
 * 🔳 Use a timing mechanism in the server to disconnect the client when their time has expired.
+  * Might possibly send a warning versus just logging them out (much like a "server needs to reboot in 5 minutes")
 * 🔳 Monitor reconnect events (only available in the .Net Framework)
 
 ## 📁 Folder Structure
@@ -24,7 +25,7 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 * Add the SignalR client library using `npm` or `libMan`.
 * Create a hub inheriting from the `Hub` base class.
 * Configure SignalR in the Startup.cs file.
-* Create and HTML view.
+* Create an HTML view.
 * Create the Javascript methods to create a hub on the client and process the messages.
 
 ## 🤔 Things to Consider
