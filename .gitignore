@@ -351,3 +351,4 @@ MigrationBackup/
 
 **/wwwroot/js/signalr/
 **/wwwroot/lib/
+profile.arm.json
