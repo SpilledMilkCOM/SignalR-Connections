@@ -18,6 +18,8 @@ namespace WebApplication1.Hubs {
 
         public override Task OnDisconnectedAsync(Exception exception) {
 
+            // Where is the "stopCalled" parameter?
+
             // In a chat application, this is where that user might be marked as "asleep" or "logged out"
             // An application might need to get a license key at this point.
 

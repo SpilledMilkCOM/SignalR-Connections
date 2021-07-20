@@ -1,5 +1,5 @@
 ﻿var IDLE_CHECK_INTERVAL = 2;   // seconds
-var IDLE_TIMEOUT = 10;         // seconds
+var IDLE_TIMEOUT = 30;         // seconds
 
 var _idleSecondsCounter = 0;
 var _logoutIntervalId;
