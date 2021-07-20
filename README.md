@@ -13,8 +13,7 @@ connect and disconnect of each client.  A timer in the browser is utilized as we
 
 ## 📝 TODO
 
-* ⬜ Track session *(and device ID)* to see who is connected.
-* ⬜ Track device ID to see who is connecte.
+* ⬜ Track Device ID to see who is connected.
 * ⬜ Use Windows Authentication to figure out user.
 * ⬜ Use DI and IoC container for object creation.
 * ⬜ Use a timing mechanism in the server to disconnect the client when their time has expired.
@@ -48,6 +47,8 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 
 ## ✅ Done!
 
+* Track User ID to see who is connected.
+  * Use the `Context.User` from the Hub to get the User Name.
 * Add **Disconnect** button *(as well as **Connect** button)*
   * The **Send** button does not work when disconnected.  W.A.D.
 * Steps to create the .Net Core 5 web application *(above)*
@@ -63,12 +64,14 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 * [**Host & Scale**](https://docs.microsoft.com/en-us/aspnet/core/signalr/scale?view=aspnetcore-5.0)
 * [**Compare .Net Core & Framework API's / Features**](https://docs.microsoft.com/en-us/aspnet/core/signalr/version-differences?view=aspnetcore-5.0)
 * [**Don't Use Session**](https://stackoverflow.com/questions/20522477/no-access-to-the-session-information-through-signalr-hub-is-my-design-is-wrong)
+* [**WebSockets Takes More Sever Setup**]()
 
 ## 📚 References:
 
 * [Understanding and Handling Connection Lifetime Events in SignalR](https://docs.microsoft.com/en-us/aspnet/signalr/overview/guide-to-the-api/handling-connection-lifetime-events)
 * [Introduction to ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-5.0)
   * [Tutorials](https://docs.microsoft.com/en-us/aspnet/core/tutorials/signalr?view=aspnetcore-5.0&tabs=visual-studio)
+* [A Beginner's Guide to WebSockets](https://www.youtube.com/watch?v=8ARodQ4Wlf4)
 * [LibMan](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-5.0)
   * [Manage Client-Side Libraries opens libman.json not UI Dialog](https://github.com/aspnet/LibraryManager/issues/411)
   * [Manually Configure SignalR using LibMan](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-5.0#manually-configure-libman-manifest-file-entries)
