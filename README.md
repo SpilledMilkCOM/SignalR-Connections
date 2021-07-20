@@ -23,7 +23,6 @@ connect and disconnect of each client.  A timer in the browser is utilized as we
 * ⬜ Authenticate user **before** connecting to SignalR *(use token as unique key for client app)*
 * ⬜ Move SignalR communication to license web service
 * ⬜ Move SignalR to separate server (need Redis for scale out)
-* ⬜ Publish to Azure
 * ⬜ Publish to local HyperV VM *(test network connectivity - easy to turn OFF network)*
 * ⬜ Wrap all of this up neatly into deliverables so web applications to **minimal** setup.
 * ⬜ Convert web application to Angular
@@ -47,6 +46,7 @@ There are slight differences between .Net Core and Framework SignalR libraries t
 
 ## ✅ Done!
 
+* Publish to [**Azure**](https://isltest.azurewebsites.net/) 
 * Track User ID to see who is connected.
   * Use the `Context.User` from the Hub to get the User Name.
 * Add **Disconnect** button *(as well as **Connect** button)*
