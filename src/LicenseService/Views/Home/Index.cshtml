@@ -14,17 +14,18 @@
     <div class="row row-divider"> </div>
 
     <table class="table-responsive">
-        <thead><tr><th>Licenses</th></tr></thead>
+        <thead><tr><th></th><th>Licenses</th></tr></thead>
 
         @if (Model.Licenses.Any()) {
             foreach (var license in Model.Licenses) {
                 <tr>
                     <td>
-                        @license.Value
+                        @Html.ActionLink("Delete", "Delete", "Home", routeValues: new { id = license.Key }, htmlAttributes: new { @class = "btn btn-sm btn-danger" })
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "Delete", "Home", routeValues: new { id = license.Key }, htmlAttributes: new { @class = "btn btn-sm btn-danger" } )
+                        @license.Value
                     </td>
+
                 </tr>
             }
 
