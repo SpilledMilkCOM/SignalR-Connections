@@ -20,12 +20,11 @@
             foreach (var license in Model.Licenses) {
                 <tr>
                     <td>
-                        @Html.ActionLink("Delete", "Delete", "Home", routeValues: new { id = license.Key }, htmlAttributes: new { @class = "btn btn-sm btn-danger" })
+                        <a class="btn btn-sm btn-danger" style="margin-right: 1em;" asp-controller="Home" asp-action="Delete" asp-route-id="@license.Key">Delete</a>
                     </td>
                     <td>
                         @license.Value
                     </td>
-
                 </tr>
             }
 
