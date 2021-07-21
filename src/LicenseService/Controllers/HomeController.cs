@@ -15,6 +15,33 @@ namespace LicenseService.Controllers {
             _logger = logger;
         }
 
+        public IActionResult Clear() {
+
+            // Kind of cheating so I don't have to call the endpoint.
+
+            _licenses.Clear();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(string id) {
+
+            var license = _licenses.Construct(id);
+
+            _licenses.Remove(license);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Get() {
+
+            // Kind of cheating so I don't have to call the endpoint.
+
+            _licenses.Get();
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Index() {
 
             var viewModel = new IndexViewModel {

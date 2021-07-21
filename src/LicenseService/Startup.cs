@@ -20,7 +20,7 @@ namespace LicenseService {
 
             // Map the interfaces to the concrete objects.
 
-            services.AddSingleton<ILicenses>(new LicenseList());
+            services.AddSingleton<ILicenses>(new LicenseList(new License()));
             services.AddScoped<ILicense, License>();
         }
 

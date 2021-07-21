@@ -1,4 +1,4 @@
-﻿    using LicenseService.Interfaces;
+﻿using LicenseService.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,12 +11,10 @@ namespace LicenseService.Controllers {
     [ApiController]
     public class LicenseController : ControllerBase {
 
-        private readonly ILicense _licensePrototype = null;
         private readonly ILicenses _licenses = null;
         private readonly ILogger<HomeController> _logger;
 
-        public LicenseController(ILicense license, ILicenses licenses, ILogger<HomeController> logger) {
-            _licensePrototype = license;
+        public LicenseController(ILicenses licenses, ILogger<HomeController> logger) {
             _licenses = licenses;
             _logger = logger;
         }
@@ -27,17 +25,18 @@ namespace LicenseService.Controllers {
 
             // For now just return some sort of token
 
-            var license = _licensePrototype.Clone();
-
-            _licenses.Add(license);
+            var license = _licenses.Get();
 
             return new string[] { license.Key };
         }
 
-        // GET api/<LicenseController>/5
+        // GET api/<LicenseController>/<Guid>
         [HttpGet("{id}")]
-        public string Get(int id) {
-            return "value";
+        public string Get(string id) {
+
+            var license = _licenses.Construct(id);
+
+            return _licenses.IsValid(license).ToString();
         }
 
         // POST api/<LicenseController>
@@ -45,14 +44,19 @@ namespace LicenseService.Controllers {
         public void Post([FromBody] string value) {
         }
 
-        // PUT api/<LicenseController>/5
+        // PUT api/<LicenseController>/<Guid>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) {
+        public void Put(string id, [FromBody] string value) {
         }
 
-        // DELETE api/<LicenseController>/5
+        [HttpDelete("clear")]
+        public void Clear() {
+            _licenses.Clear();
+        }
+
+        // DELETE api/<LicenseController>/<Guid>
         [HttpDelete("{id}")]
-        public void Delete(int id) {
+        public void Delete(string id) {
         }
     }
 }
