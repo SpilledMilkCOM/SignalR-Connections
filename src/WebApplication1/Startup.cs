@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication1.Hubs;
+using WebApplication1.Interfaces;
+using WebApplication1.Models;
 
 namespace WebApplication1 {
     public class Startup {
@@ -19,6 +21,10 @@ namespace WebApplication1 {
 
             // Part of the standard configuration
             services.AddSignalR();
+
+            // Map the interfaces to the concrete objects.
+
+            services.AddSingleton<ILicenseService>(new LicenseService());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

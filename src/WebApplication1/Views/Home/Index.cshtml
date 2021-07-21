@@ -2,36 +2,41 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-    <div class="row">
-		<div class="form-row">
 
-			<div class="form-group">
-				<div class="col-form-label">User</div>
-				<input class="form-control" type="text" id="userInput" />
-			</div>
+<div class="row">
+    <div class="form-row">
 
-			<div class="row row-divider col-12"> </div>
+        <div class="row form-group">
+            <div class="col-4 col-form-label">User</div>
+            <div class="col-6">
+                <input class="form-control" type="text" id="userInput" />
+            </div>
+        </div>
 
-			<div class="form-group">
-				<div class="col-form-label">Message</div>
-				<input class="form-control" type="text" id="messageInput" />
-			</div>
+        <div class="row row-divider col-12"> </div>
 
-			<div class="row row-divider col-12"> </div>
+        <div class="row form-group">
+            <div class="col-4 col-form-label">Message</div>
+            <div class="col-6">
+                <input class="form-control" type="text" id="messageInput" />
+            </div>
+        </div>
 
-			<div class="col-6 form-group">
-				<input type="button" id="sendButton" class="form-control" value="Send Message" />
-			</div>
+        <div class="row row-divider col-12"> </div>
 
-			<div class="col-6 form-group">
-				<input type="button" id="disconnectButton" class="form-control" value="Disconnect" />
-			</div>
+        <div class="col-4 form-group">
+            <input type="button" id="sendButton" class="form-control" value="Send Message" />
+        </div>
 
-			<div class="col-6 form-group">
-				<input type="button" id="connectButton" class="form-control" value="Connect" />
-			</div>
-		</div>
+        <div class="row row-divider col-12"> </div>
+
+        <div class="col-4 form-group">
+            <input type="button" id="disconnectButton" class="form-control" value="Disconnect" />
+        </div>
+
+        <div class="col-4 form-group">
+            <input type="button" id="connectButton" class="form-control" value="Connect" />
+        </div>
     </div>
 </div>
 
