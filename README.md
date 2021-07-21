@@ -76,3 +76,4 @@ There are slight differences between .Net Core and Framework SignalR libraries t
   * [Manage Client-Side Libraries opens libman.json not UI Dialog](https://github.com/aspnet/LibraryManager/issues/411)
   * [Manually Configure SignalR using LibMan](https://docs.microsoft.com/en-us/aspnet/core/client-side/libman/libman-vs?view=aspnetcore-5.0#manually-configure-libman-manifest-file-entries)
 * [Detect Browser Inactivity](https://stackoverflow.com/questions/13246378/detecting-user-inactivity-over-a-browser-purely-through-javascript)
+* [Configure Windows Authentication in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/windowsauth?view=aspnetcore-5.0&tabs=visual-studio)
