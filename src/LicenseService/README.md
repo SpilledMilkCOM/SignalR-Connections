@@ -7,3 +7,8 @@ This application also uses SignalR to update the web clients from the API calls.
 
 ## 📝 TODO
 
+* Clean up client hub callback to build a table from the JSON received.
+
+## 📚 References:
+
+* [Send messages from outside a hub](https://docs.microsoft.com/en-us/aspnet/core/signalr/hubcontext?view=aspnetcore-5.0)

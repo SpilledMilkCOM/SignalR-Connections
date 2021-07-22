@@ -81,6 +81,8 @@ namespace LicenseService.Controllers {
         //----==== PRIVATE ====--------------------------------------------------------------------------------
 
         private async void RefreshAllClients() {
+            // Send messages from outside a hub 
+            // https://docs.microsoft.com/en-us/aspnet/core/signalr/hubcontext?view=aspnetcore-5.0
 
             var json = _serializationUtility.Serialize(_licenses.ToList());
 
