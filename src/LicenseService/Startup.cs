@@ -1,3 +1,4 @@
+using LicenseService.Hubs;
 using LicenseService.Interfaces;
 using LicenseService.Models;
 using Microsoft.AspNetCore.Builder;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SM.Serialization;
 
 namespace LicenseService {
     public class Startup {
@@ -18,10 +20,15 @@ namespace LicenseService {
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllersWithViews();
 
+            // Part of the standard configuration
+            services.AddSignalR();
+
             // Map the interfaces to the concrete objects.
 
+            //services.AddSingleton<ILicenseHub, LicenseHub>();
             services.AddSingleton<ILicenses>(new LicenseList(new License()));
-            services.AddScoped<ILicense, License>();
+            services.AddTransient<ILicense, License>();                                  // Just create a new one each time.
+            services.AddTransient<ISerializationUtility, JsonSerializationUtility>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +52,10 @@ namespace LicenseService {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+                // Part of the standard configuration
+                endpoints.MapHub<LicenseHub>("/licenseHub");
             });
         }
     }

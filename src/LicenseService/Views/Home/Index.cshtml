@@ -13,7 +13,7 @@
 
     <div class="row row-divider"> </div>
 
-    <table class="table-responsive">
+    <table id="licenseTableId" class="table-responsive">
         <thead><tr><th></th><th>Licenses</th></tr></thead>
 
         @if (Model.Licenses.Any()) {
@@ -33,3 +33,12 @@
         }
     </table>
 </div>
+
+<div class="row">
+    <div class="col-6">
+        <ul id="messagesList"></ul>
+    </div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/hub.js"></script>
