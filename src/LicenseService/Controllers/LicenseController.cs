@@ -47,6 +47,7 @@ namespace LicenseService.Controllers {
         // PUT api/<LicenseController>/<Guid>
         [HttpPut("{id}")]
         public void Put(string id, [FromBody] string value) {
+            throw new NotImplementedException("PUT has not been implemented.");
         }
 
         [HttpDelete("clear")]
@@ -57,6 +58,10 @@ namespace LicenseService.Controllers {
         // DELETE api/<LicenseController>/<Guid>
         [HttpDelete("{id}")]
         public void Delete(string id) {
+
+            var license = _licenses.Construct(id);
+
+            _licenses.Remove(license);
         }
     }
 }
