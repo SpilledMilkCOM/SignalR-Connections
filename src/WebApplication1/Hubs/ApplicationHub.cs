@@ -3,23 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApplication1.Interfaces;
-using WebApplication1.Models;
 
 namespace WebApplication1.Hubs {
     public class ApplicationHub : Hub {
 
         // .Net Core does NOT support the OnReconnect override.
 
-        private ILicenseService _licenseService;
-
         // This cache will be a Singleton eventually.
         private static readonly Dictionary<string, string> _connections = new Dictionary<string, string>();        // Map connection id => key id
+        private readonly ILicenseService _licenseService;
 
-        public ApplicationHub() {
-
-            // TODO: Use IoC to make the LicenseService a Singleton, then remove the static from the RestClient member
-
-            _licenseService = new LicenseService();
+        public ApplicationHub(ILicenseService licenseService) {
+            _licenseService = licenseService;
         }
 
         public override Task OnConnectedAsync() {
@@ -40,7 +35,7 @@ namespace WebApplication1.Hubs {
             return base.OnConnectedAsync();
         }
 
-        public override Task OnDisconnectedAsync(Exception exception) {
+        public override Task OnDisconnectedAsync(Exception exception) {    // Where is the "stopCalled" parameter?
 
             string license = null;
 
@@ -48,15 +43,17 @@ namespace WebApplication1.Hubs {
                 _licenseService.ReturnLicense(license);
                 _connections.Remove(Context.ConnectionId);
             }
- 
-            // Where is the "stopCalled" parameter?
 
-                var userName = Context.User.Identity.Name ?? "A user";
+            try {
+                var userName = Context?.User?.Identity?.Name ?? "A user";
 
-            // In a chat application, this is where that user might be marked as "asleep" or "logged out"
-            // An application might need to get a license key at this point.
+                // In a chat application, this is where that user might be marked as "asleep" or "logged out"
+                // An application might need to get a license key at this point.
 
-            Clients.All.SendAsync("ReceiveMessage", "System", $"{userName} disconnected");
+                Clients.All.SendAsync("ReceiveMessage", "System", $"{userName} disconnected");
+            } catch (Exception) {
+            }
+
             return base.OnDisconnectedAsync(exception);
         }
 

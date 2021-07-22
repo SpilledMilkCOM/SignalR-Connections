@@ -123,7 +123,9 @@ namespace SM.Common.REST {
 
 			result.Wait();      // Basically turning this synchronous.
 
-			return null;
+			var status = result.Result.Content.ReadAsStringAsync().Result;
+
+			return status;
         }
 
 		//----==== PRIVATE ====--------------------------------------------------------------------

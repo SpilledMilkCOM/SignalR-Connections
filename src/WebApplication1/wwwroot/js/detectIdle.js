@@ -1,5 +1,6 @@
 ﻿var IDLE_CHECK_INTERVAL = 2;   // seconds
-var IDLE_TIMEOUT = 30;         // seconds
+var IDLE_TIMEOUT = 300;        // seconds (5 min)
+var LOGOUT_TIMEOUT = 30;       // seconds
 
 var _idleSecondsCounter = 0;
 var _logoutIntervalId;
@@ -46,7 +47,7 @@ function CheckIdleTime() {
 function CheckLogoutTime() {
     _logoutSecondsCounter += IDLE_CHECK_INTERVAL;
 
-    if (_logoutSecondsCounter >= IDLE_TIMEOUT) {
+    if (_logoutSecondsCounter >= LOGOUT_TIMEOUT) {
 
         window.clearInterval(_logoutIntervalId);
 

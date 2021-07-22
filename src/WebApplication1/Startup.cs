@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SM.Serialization;
 using WebApplication1.Hubs;
 using WebApplication1.Interfaces;
-using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1 {
     public class Startup {
@@ -24,7 +25,13 @@ namespace WebApplication1 {
 
             // Map the interfaces to the concrete objects.
 
-            services.AddSingleton<ILicenseService>(new LicenseService());
+            // Not recommended because the warning says additional singletons could be built.
+            //var serviceProvider = services.BuildServiceProvider();
+            //services.AddSingleton<ILicenseService>(new LicenseService(serviceProvider.GetService<ISerializationUtility>()));
+
+            services.AddSingleton<ILicenseService>(new LicenseService(new JsonSerializationUtility()));
+            //services.AddScoped<ISerializationUtility, JsonSerializationUtility>();
+            services.AddTransient<ISerializationUtility, JsonSerializationUtility>();       // Just create a new one each time.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
