@@ -23,8 +23,6 @@ namespace WebApplication1.Hubs {
 
             _connections.Add(Context.ConnectionId, license);
 
-            // TODO: Put this in some cache based on the Hub's connection ID.
-
             var userName = Context.User.Identity.Name ?? "A user";
 
             // In a chat application, this is where that user might be marked as "awake" or "joined chat" (if they were not previously chatting)
@@ -61,9 +59,21 @@ namespace WebApplication1.Hubs {
 
             var userName = Context.User.Identity.Name ?? "A user";
 
-            // Calling ALL of the clients' ReceiveMessage methods that are attached to the hub on the client.
+            string license = null;
 
-            await Clients.All.SendAsync("ReceiveMessage", $"({userName}) {user}", message);
+            if (_connections.TryGetValue(Context.ConnectionId, out license)) {
+
+                if (!_licenseService.IsValidLicense(license)) {
+
+                    // Don't send the actual message because the user does not have a valid license.
+
+                    message = "!!NEEDS A NEW LICENSE!!";
+                }
+
+                // Calling ALL of the clients' ReceiveMessage methods that are attached to the hub on the client.
+
+                await Clients.All.SendAsync("ReceiveMessage", $"({userName}) {user}", message);
+            }
         }
     }
 }

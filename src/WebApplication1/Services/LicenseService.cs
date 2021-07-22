@@ -38,9 +38,9 @@ namespace WebApplication1.Services {
 
         public bool IsValidLicense(string licenseId) {
 
-            EndpointMethod = $"{ENDPOINT_METHOD_PREFIX}{licenseId}";
-
-            return Get() == "true";
+            EndpointMethod = $"{ENDPOINT_METHOD_PREFIX}/{licenseId}";
+            
+            return Get() == "True";
         }
 
         public void ReturnLicense(string licenseId) {
