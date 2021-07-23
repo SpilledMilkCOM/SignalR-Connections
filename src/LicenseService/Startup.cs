@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using SM.Serialization;
 
 namespace LicenseService {
@@ -28,7 +29,7 @@ namespace LicenseService {
             //services.AddSingleton<ILicenseHub, LicenseHub>();
             services.AddSingleton<ILicenses>(new LicenseList(new License()));
             services.AddTransient<ILicense, License>();                                  // Just create a new one each time.
-            services.AddTransient<ISerializationUtility, JsonSerializationUtility>();
+            services.AddTransient<ISerializationUtility, JsonSerializationUtility>((service) => new JsonSerializationUtility(new JsonSerializerSettings()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

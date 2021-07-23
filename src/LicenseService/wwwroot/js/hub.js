@@ -10,7 +10,15 @@ connection.on("ReceiveMessage", function (licenseJson) {
 
 	document.getElementById("messagesList").appendChild(li);
 
-	li.textContent = `${licenseJson}`;
+	var licenses = JSON.parse(licenseJson);
+
+	// TODO: This COULD build out an entire table with the delete button.
+
+	li.textContent = " List Update (refresh for latest): ";
+
+	licenses.forEach(function (item) {
+		li.textContent += item.Key + ", ";
+	});
 });
 
 connection.start().catch(function (err) {

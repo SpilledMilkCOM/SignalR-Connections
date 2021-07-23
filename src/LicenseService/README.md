@@ -5,6 +5,10 @@ This application also uses SignalR to update the web clients from the API calls.
 
 *(NOTE: This contains a singleton of licenses that are not persisted, therefore if this services is spun down the list will be lost.)*
 
+## Highlights
+
+* Calling clients through the `Hub` using an injected `IHubContext<Hub>`.
+
 ## 📝 TODO
 
 * Clean up client hub callback to build a table from the JSON received.

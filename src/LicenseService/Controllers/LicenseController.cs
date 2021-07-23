@@ -37,6 +37,8 @@ namespace LicenseService.Controllers {
 
             RefreshAllClients();
 
+            // TODO: REMOVE the array, only return a string
+
             return new string[] { license.Key };
         }
 
@@ -84,7 +86,7 @@ namespace LicenseService.Controllers {
             // Send messages from outside a hub 
             // https://docs.microsoft.com/en-us/aspnet/core/signalr/hubcontext?view=aspnetcore-5.0
 
-            var json = _serializationUtility.Serialize(_licenses.ToList());
+            var json = _serializationUtility.Serialize(_licenses.ToArray());
 
             await _licenseHub.Clients.All.SendAsync("ReceiveMessage", json);
         }
